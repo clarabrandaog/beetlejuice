@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crew List</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+  <link rel="stylesheet" href="styles.css"> <!-- optional CSS file -->
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0; /* canvas behind button */
+    }
+
+    #backButton {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      width: 48px;
+      height: 48px;
+      background-color: #580FC8;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10; /* button above canvas */
+    }
+  </style>
+</head>
+<body>
+  <!-- HTML Back Button -->
+  <button id="backButton">←</button>
+
+  <!-- Link to your p5.js sketch -->
+  <script src="sketch.js"></script>
+  <script>
+    // Back button navigates to index.html
+    document.getElementById('backButton').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

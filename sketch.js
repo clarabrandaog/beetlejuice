@@ -1,23 +1,17 @@
-//
-//  SECONDARY SCREEN — CREW LIST
-//  Completely standalone p5.js sketch
-//  Mobile-first layout
-//  Uses spiral background from main sketch
-//
+// ----------------------------------------------------------
+// SECONDARY SCREEN — CREW LIST
+// ----------------------------------------------------------
 
-// ----------------------------------------------------------
-// DATA + STATE
-// ----------------------------------------------------------
 let dataTable;
 let people = [];
 let departments = {};
-let imgCache = {};
-let defaultThumb = "https://i.ibb.co/YFzCxxzD/thumb.png";
 
 let scrollY = 0;
 let maxScroll = 0;
 let dragging = false;
 let lastY = 0;
+let targetPersonName = null;
+let hasScrolledToTarget = false;
 
 // Spiral background state
 let angle = 0;
@@ -26,22 +20,10 @@ let wigglePhase = 0;
 const TEXT_COLOR_HEX = "#580FC8";
 
 // ----------------------------------------------------------
-// PRELOAD CSV + IMAGES
+// PRELOAD CSV
 // ----------------------------------------------------------
 function preload() {
   dataTable = loadTable("crew.csv", "csv", "header");
-
-  // Preload all portraits
-  for (let r = 0; r < dataTable.getRowCount(); r++) {
-    const row = dataTable.getRow(r);
-    const pic = row.get("picture") || defaultThumb;
-    if (!imgCache[pic]) {
-      imgCache[pic] = loadImage(pic);
-    }
-  }
-
-  // Fallback
-  imgCache[defaultThumb] = loadImage(defaultThumb);
 }
 
 // ----------------------------------------------------------
@@ -49,11 +31,15 @@ function preload() {
 // ----------------------------------------------------------
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  textFont("Montserrat");
+  textFont("Open Sans");
   textAlign(LEFT, TOP);
   pixelDensity(max(1, displayDensity()));
 
   buildPeopleFromTable();
+  
+  // Get the person name from query parameter
+  const params = new URLSearchParams(window.location.search);
+  targetPersonName = params.get('person');
 }
 
 // ----------------------------------------------------------
@@ -63,6 +49,11 @@ function draw() {
   drawBackgroundSpiral();
   drawScrollableList();
   scrollY = constrain(scrollY, maxScroll, 0);
+  
+  // Auto-scroll to target person if specified and not yet scrolled
+  if (!hasScrolledToTarget && targetPersonName) {
+    scrollToTargetPerson();
+  }
 }
 
 // ----------------------------------------------------------
@@ -76,14 +67,14 @@ function buildPeopleFromTable() {
     const row = dataTable.getRow(r);
 
     const name = row.get("name") || "No name";
-    const picture = row.get("picture") || defaultThumb;
+    const picture = row.get("picture");
     const bio = row.get("bio") || "";
     const fn = row.get("function") || "";
     const dept = row.get("department") || "Unknown";
 
     const p = new Person(name, picture, bio, fn, dept);
-
     people.push(p);
+
     if (!departments[dept]) departments[dept] = [];
     departments[dept].push(p);
   }
@@ -95,12 +86,22 @@ function buildPeopleFromTable() {
 class Person {
   constructor(name, picture, bio, fn, department) {
     this.name = name || "No name";
-    this.picture = picture || defaultThumb;
+    this.picture = picture || null;
     this.bio = bio || "";
     this.fn = fn || "";
     this.department = department || "Unknown";
 
-    this.img = imgCache[this.picture] || imgCache[defaultThumb];
+    if (this.picture) {
+      this.img = loadImage(this.picture,
+        img => { this.img = img; },
+        err => { 
+          console.warn(`Failed to load image: ${this.picture}`);
+          this.img = null; 
+        }
+      );
+    } else {
+      this.img = null;
+    }
   }
 }
 
@@ -140,7 +141,7 @@ function drawScrollableList() {
       strokeWeight(0.6);
       rect(leftPad, y, cardW, cardH, 14);
 
-      // portrait
+      // portrait mask
       const px = leftPad + 16;
       const py = y + 12;
 
@@ -172,21 +173,24 @@ function drawScrollableList() {
       let tx = px + imgSize + 16;
       let ty = y + 14;
 
+      // NAME — bold
       textAlign(LEFT, TOP);
       fill(TEXT_COLOR_HEX);
-
       textSize(18);
       textStyle(BOLD);
       text(p.name, tx, ty);
       ty += textAscent() + 6;
 
+      // FUNCTION — bold
       textSize(14);
-      textStyle(NORMAL);
+      textStyle(BOLD);
       text(p.fn, tx, ty);
       ty += textAscent() + 10;
 
+      // BIO — normal
       textSize(13);
       textLeading(16);
+      textStyle(NORMAL); // make sure bio is not bold
       const bioW = width - tx - 18;
       text(p.bio, tx, ty, bioW, cardH - (ty - y) - 18);
 
@@ -201,28 +205,8 @@ function drawScrollableList() {
   maxScroll = min(0, height - contentBottom - 20);
 
   pop();
-
-  drawBackButton();
 }
 
-// ----------------------------------------------------------
-// BACK BUTTON
-// ----------------------------------------------------------
-function drawBackButton() {
-  const size = 48;
-  const bx = 12, by = 12;
-
-  push();
-  fill(TEXT_COLOR_HEX);
-  noStroke();
-  rect(bx, by, size, size, 10);
-
-  fill(255);
-  textAlign(CENTER, CENTER);
-  textSize(28);
-  text("←", bx + size / 2, by + size / 2);
-  pop();
-}
 
 // ----------------------------------------------------------
 // SPIRAL BACKGROUND
@@ -316,4 +300,33 @@ function mouseReleased() {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+}
+
+// ----------------------------------------------------------
+// AUTO-SCROLL TO TARGET PERSON
+// ----------------------------------------------------------
+function scrollToTargetPerson() {
+  if (!targetPersonName) return;
+  
+  let yPos = 36;
+  const leftPad = 18;
+  const imgSize = min(96, floor(width * 0.17));
+  const deptNames = Object.keys(departments).sort((a, b) => a.localeCompare(b));
+  
+  for (let dept of deptNames) {
+    yPos += 48; // department title height
+    
+    for (let p of departments[dept]) {
+      if (p.name === targetPersonName) {
+        // Found the target person, scroll to them
+        // Position the person card near the top of the viewport
+        scrollY = constrain(-(yPos - 150), maxScroll, 0);
+        hasScrolledToTarget = true;
+        return;
+      }
+      const cardH = max(110, imgSize + 24);
+      yPos += cardH + 14;
+    }
+    yPos += 8;
+  }
 }
