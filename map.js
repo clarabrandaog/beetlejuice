@@ -15,6 +15,11 @@ let wigglePhase = 0;
 // Image forbidden rectangle
 let imageZone = { x: 0, y: 0, w: 0, h: 0 };
 
+// Mobile detection
+let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+let frameSkip = isMobile ? 2 : 1;
+let frameCounter = 0;
+
 function preload() {
   dataTable = loadTable("crew.csv", "csv", "header");
   titleImg = loadImage("images/title.png");
@@ -23,6 +28,13 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  
+  // Mobile optimization: reduce pixel density
+  if (isMobile) {
+    pixelDensity(1);
+  } else {
+    pixelDensity(max(1, displayDensity() * 0.75)); // Cap at 0.75 for performance
+  }
 
   // Create cluster containers
   for (let r = 0; r < dataTable.getRowCount(); r++) {
@@ -78,7 +90,12 @@ function setup() {
 function draw() {
   drawBackgroundSpiral();
   drawHeaderImage();
-  physicsStep();
+  
+  // Skip physics on every other frame on mobile for performance
+  frameCounter++;
+  if (frameCounter % frameSkip === 0) {
+    physicsStep();
+  }
 
   imageMode(CENTER);
   for (let dept in clusters) {

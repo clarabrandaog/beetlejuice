@@ -17,6 +17,9 @@ let hasScrolledToTarget = false;
 let angle = 0;
 let wigglePhase = 0;
 
+// Mobile detection
+let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
 const TEXT_COLOR_HEX = "#580FC8";
 
 // ----------------------------------------------------------
@@ -31,9 +34,16 @@ function preload() {
 // ----------------------------------------------------------
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  
+  // Mobile optimization: reduce pixel density
+  if (isMobile) {
+    pixelDensity(1);
+  } else {
+    pixelDensity(max(1, displayDensity() * 0.75));
+  }
+  
   textFont("Open Sans");
   textAlign(LEFT, TOP);
-  pixelDensity(max(1, displayDensity()));
 
   buildPeopleFromTable();
   
