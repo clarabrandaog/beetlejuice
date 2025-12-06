@@ -16,11 +16,15 @@ let hasScrolledToTarget = false;
 // Spiral background state
 let angle = 0;
 let wigglePhase = 0;
+let lastBackgroundFrame = 0;
 
-// Mobile detection
+// Mobile detection and optimization
 let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+let imgCache = {}; // Image cache to avoid reloading
+let visibleCards = new Set(); // Track which cards are visible
 
 const TEXT_COLOR_HEX = "#580FC8";
+const DEFAULT_THUMB = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Crect fill='%23ccc' width='96' height='96'/%3E%3C/svg%3E";
 
 // ----------------------------------------------------------
 // PRELOAD CSV
@@ -46,10 +50,34 @@ function setup() {
   textAlign(LEFT, TOP);
 
   buildPeopleFromTable();
+  preloadImages(); // Async image loading
   
   // Get the person name from query parameter
   const params = new URLSearchParams(window.location.search);
   targetPersonName = params.get('person');
+}
+
+// ----------------------------------------------------------
+// PRELOAD IMAGES ASYNCHRONOUSLY
+// ----------------------------------------------------------
+function preloadImages() {
+  for (let p of people) {
+    if (p.picture && !imgCache[p.picture]) {
+      // Load images asynchronously without blocking
+      loadImage(
+        p.picture,
+        img => {
+          imgCache[p.picture] = img;
+          p.img = img;
+          p.imgLoaded = true;
+        },
+        err => {
+          p.imgError = true;
+          console.warn(`Failed to load image: ${p.picture}`);
+        }
+      );
+    }
+  }
 }
 
 // ----------------------------------------------------------
@@ -100,17 +128,20 @@ class Person {
     this.bio = bio || "";
     this.fn = fn || "";
     this.department = department || "Unknown";
+    this.img = null;
+    this.imgLoaded = false;
+    this.imgError = false;
+  }
 
-    if (this.picture) {
-      this.img = loadImage(this.picture,
-        img => { this.img = img; },
-        err => { 
-          console.warn(`Failed to load image: ${this.picture}`);
-          this.img = null; 
-        }
-      );
-    } else {
-      this.img = null;
+  // Load image asynchronously only when needed
+  ensureImageLoaded() {
+    if (this.imgLoaded || this.imgError || !this.picture) return;
+
+    if (imgCache[this.picture]) {
+      this.img = imgCache[this.picture];
+      this.imgLoaded = true;
+    } else if (!this.picture) {
+      this.imgError = true;
     }
   }
 }
@@ -129,10 +160,25 @@ function drawScrollableList() {
   const leftPad = 18;
   const cardW = width - leftPad * 2;
   const imgSize = min(96, floor(width * 0.17));
+  const viewportTop = -scrollY;
+  const viewportBottom = -scrollY + height;
 
   const deptNames = Object.keys(departments).sort((a, b) => a.localeCompare(b));
 
   for (let dept of deptNames) {
+    // Skip rendering if department is completely off-screen
+    if (y + 48 < viewportTop || y > viewportBottom) {
+      // Still calculate y for layout
+      textSize(34);
+      y += 48;
+      for (let p of departments[dept]) {
+        const cardH = max(110, imgSize + 24);
+        y += cardH + 14;
+      }
+      y += 8;
+      continue;
+    }
+
     // DEPARTMENT TITLE
     textAlign(CENTER, TOP);
     textSize(34);
@@ -144,6 +190,15 @@ function drawScrollableList() {
     // PEOPLE IN THIS DEPARTMENT
     for (let p of departments[dept]) {
       const cardH = max(110, imgSize + 24);
+
+      // Skip if card is off-screen
+      if (y + cardH < viewportTop || y > viewportBottom) {
+        y += cardH + 14;
+        continue;
+      }
+
+      visibleCards.add(p.name);
+      p.ensureImageLoaded();
 
       // card
       fill(255, 245);
@@ -200,7 +255,7 @@ function drawScrollableList() {
       // BIO — normal
       textSize(13);
       textLeading(16);
-      textStyle(NORMAL); // make sure bio is not bold
+      textStyle(NORMAL);
       const bioW = width - tx - 18;
       text(p.bio, tx, ty, bioW, cardH - (ty - y) - 18);
 
@@ -219,9 +274,12 @@ function drawScrollableList() {
 
 
 // ----------------------------------------------------------
-// SPIRAL BACKGROUND
+// SPIRAL BACKGROUND (optimized - throttled rendering)
 // ----------------------------------------------------------
 function drawBackgroundSpiral() {
+  // Only update spiral on every 2nd frame on mobile
+  if (isMobile && frameCount % 2 !== 0) return;
+
   background("#9bb745");
   angle -= 0.01;
   wigglePhase += 0.05;
