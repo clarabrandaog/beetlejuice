@@ -281,27 +281,65 @@ function applyClusterEdgeForces(c) {
 }
 
 // ---------------------- Person class ----------------------
-class Person{
-  constructor(name,picture,bio,fn,department){
-    this.name=name; this.picture=picture||defaultThumb; this.bio=bio; this.fn=fn; this.department=department;
-    this.pos=createVector(random(width),random(height));
-    this.vel=createVector(0,0); this.acc=createVector(0,0);
-    this.size=90; this.radius=this.size/2;
+class Person {
+  constructor(name, picture, bio, fn, department) {
+    this.name = name;
+    this.picture = picture || defaultThumb;
+    this.bio = bio;
+    this.fn = fn;
+    this.department = department;
+
+    this.pos = createVector(random(width), random(height));
+    this.vel = createVector(0, 0);
+    this.acc = createVector(0, 0);
+
+    // Initial size based on screen width
+    this.size = windowWidth <= 700 ? 60 : 90;
+    this.radius = this.size / 2;
   }
-  display(){
-    push(); translate(this.pos.x,this.pos.y);
-    drawingContext.save(); drawingContext.beginPath();
-    drawingContext.arc(0,0,this.radius,0,TWO_PI); drawingContext.clip();
+
+  // Returns current size dynamically
+  getSize() {
+    return windowWidth <= 700 ? 60 : 90;
+  }
+
+  // Returns current radius dynamically
+  getRadius() {
+    return this.getSize() / 2;
+  }
+
+  display() {
+    const size = this.getSize();
+    const radius = this.getRadius();
+
+    push();
+    translate(this.pos.x, this.pos.y);
+
+    // Clip to circular shape
+    drawingContext.save();
+    drawingContext.beginPath();
+    drawingContext.arc(0, 0, radius, 0, TWO_PI);
+    drawingContext.clip();
+
     imageMode(CENTER);
-    let img=imgCache[this.picture];
-    if(img) image(img,0,0,this.size,this.size);
-    else{fill(150); noStroke(); ellipse(0,0,this.size,this.size);}
+    let img = imgCache[this.picture];
+    if (img) image(img, 0, 0, size, size);
+    else { fill(150); noStroke(); ellipse(0, 0, size, size); }
+
     drawingContext.restore();
-    stroke(255); strokeWeight(2); noFill();
-    drawingContext.beginPath(); drawingContext.arc(0,0,this.radius,0,TWO_PI); drawingContext.stroke();
+
+    // Draw circle border
+    stroke(255);
+    strokeWeight(2);
+    noFill();
+    drawingContext.beginPath();
+    drawingContext.arc(0, 0, radius, 0, TWO_PI);
+    drawingContext.stroke();
+
     pop();
   }
 }
+
 
 function mousePressed(){
   // Check if clicked on any person ball
@@ -315,19 +353,30 @@ function mousePressed(){
   }
 }
 
-function windowResized(){
-  resizeCanvas(windowWidth,windowHeight);
-  for(let dept in clusters){
-    const cl=clusters[dept];
-    cl.cx = width/2 + random(-100,100);
-    cl.cy = height/2 + random(-100,100);
-    for(let p of cl.members){
-      let a=random(TWO_PI); let rr=cl.r*sqrt(random());
-      p.pos=createVector(cl.cx+rr*cos(a),cl.cy+rr*sin(a));
-      p.vel=createVector(0,0);
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+
+  for (let dept in clusters) {
+    const cl = clusters[dept];
+
+    // Reset cluster positions
+    cl.cx = width / 2 + random(-100, 100);
+    cl.cy = height / 2 + random(-100, 100);
+
+    for (let p of cl.members) {
+      // Reset people positions inside clusters
+      let a = random(TWO_PI);
+      let rr = cl.r * sqrt(random());
+      p.pos = createVector(cl.cx + rr * cos(a), cl.cy + rr * sin(a));
+      p.vel = createVector(0, 0);
+
+      // Update size and radius based on screen width
+      p.size = windowWidth <= 700 ? 50 : 90;
+      p.radius = p.size / 2;
     }
   }
 }
+
 
 // ------------- background spiral --------------
 function drawBackgroundSpiral(){
