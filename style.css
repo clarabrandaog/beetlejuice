@@ -8,10 +8,29 @@
 body {
   font-family: 'Open Sans', sans-serif;
   min-height: 100vh;
-  padding: 12px;
+  overflow-y: auto;
   color: #580FC8;
-  /* Gradient background similar to p5 spiral colors */
-  background: linear-gradient(135deg, #9bb745 0%, #d6e18c 100%);
+  background-color: #9bb745;
+  position: relative;
+  padding: 12px;
+}
+
+/* Spiral-like overlay (subtle texture mimic) */
+#backgroundOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(circle at center, rgba(155,183,69,0.2) 0%, transparent 70%);
+  z-index: 0;
+  animation: rotateOverlay 20s linear infinite;
+}
+
+@keyframes rotateOverlay {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* Back button */
@@ -33,34 +52,39 @@ body {
   z-index: 10;
 }
 
-/* Crew Container */
+/* Crew container */
 #crewContainer {
-  margin-top: 72px; /* space for back button */
+  position: relative;
+  z-index: 1;
+  margin-top: 72px;
   padding-bottom: 40px;
 }
 
-/* Department Title */
+/* Department title */
 .department-title {
   text-align: center;
   font-size: 34px;
   font-weight: bold;
   margin: 36px 0 24px 0;
   text-transform: uppercase;
+  color: #580FC8;
 }
 
-/* Person Card */
+/* Person card */
 .person-card {
   display: flex;
   align-items: flex-start;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 14px;
+  border: 1px solid #ddd;
   padding: 16px;
-  margin: 12px 0;
+  margin: 12px auto;
   gap: 16px;
+  max-width: 800px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
 
-/* Portrait image */
+/* Portrait */
 .person-card img {
   width: 96px;
   height: 96px;
@@ -92,7 +116,8 @@ body {
 /* Bio */
 .person-info .bio {
   font-size: 13px;
-  line-height: 1.4;
+  line-height: 16px;
+  white-space: pre-wrap;
 }
 
 /* Responsive adjustments */

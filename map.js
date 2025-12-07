@@ -95,22 +95,24 @@ function draw() {
 
 // ---------------------- physics ----------------------
 function physicsStep() {
-  const kAttract = 0.03;
-  const maxForce = 2.5;
-  const damping = 0.88;
-  const clusterSoft = 0.15;
-  const clusterRepel = 0.12;
+  const kAttract = 0.03;       // People attracted to cluster center
+  const maxForce = 1.5;        // Max velocity
+  const damping = 0.88;        // Velocity damping
+  const clusterSoft = 0.15;    // Soft push inside cluster radius
+  const clusterRepel = 1.2;    // Increased repulsion
+  const floatAmplitude = 12;   // Cluster floating amplitude
+  const floatSpeed = 0.02;     // Floating speed
 
   const clusterKeys = Object.keys(clusters);
 
-  // 1) Cluster repulsion (floating network layout)
+  // 1) Cluster repulsion (stronger and more spacing)
   for (let i = 0; i < clusterKeys.length; i++) {
     for (let j = i + 1; j < clusterKeys.length; j++) {
       let c1 = clusters[clusterKeys[i]];
       let c2 = clusters[clusterKeys[j]];
       let diff = createVector(c2.cx - c1.cx, c2.cy - c1.cy);
       let distCenters = diff.mag();
-      let minDist = c1.r + c2.r + 40; // edge-to-edge spacing
+      let minDist = c1.r + c2.r + 80; // more spacing between clusters
       if (distCenters < minDist && distCenters > 0) {
         let push = diff.copy().normalize().mult((minDist - distCenters) * clusterRepel);
         c2.cx += push.x * 0.5;
@@ -122,8 +124,6 @@ function physicsStep() {
   }
 
   // 2) Floating clusters + edge forces
-  const floatAmplitude = 12;
-  const floatSpeed = 0.01;
   for (let dept in clusters) {
     let c = clusters[dept];
     let phase = dept.length * 0.37;
@@ -132,6 +132,7 @@ function physicsStep() {
 
     applyClusterEdgeForces(c);
     keepOutImageZoneCluster(c);
+
     // Keep inside canvas
     c.cx = constrain(c.cx, c.r + 20, width - c.r - 20);
     c.cy = constrain(c.cy, c.r + 20, height - c.r - 20);
@@ -186,25 +187,51 @@ function physicsStep() {
 
 // ---------------------- Image zone helpers ----------------------
 function drawHeaderImage() {
-  if (!titleImg || !qrImg) return;
+  if (!titleImg) return; // titleImg must exist
+
   const padding = 6;
   const aspectTitle = 2188 / 418;
   let maxZoneHeight = height * 0.5;
   let titleH = min(maxZoneHeight, height * 0.28);
   let titleW = titleH * aspectTitle;
-  if (titleW > width * 0.8) { titleW = width * 0.8; titleH = titleW / aspectTitle; }
-  let titleX = padding, titleY = height - titleH - padding;
-  let qrSize = titleH;
-  let qrX = width - qrSize - padding, qrY = height - qrSize - padding;
+  if (titleW > width * 0.8) {
+    titleW = width * 0.8;
+    titleH = titleW / aspectTitle;
+  }
+  let titleX = padding;
+  let titleY = height - titleH - padding;
+
+  // Draw title image
   imageMode(CORNER);
   image(titleImg, titleX, titleY, titleW, titleH);
-  image(qrImg, qrX, qrY, qrSize, qrSize);
+
+  // QR code calculations
+  let showQR = windowWidth > 700 && qrImg; // Only show on wide screens
+  let qrSize = titleH;
+  let qrX = width - qrSize - padding;
+  let qrY = height - qrSize - padding;
+
+  if (showQR) {
+    image(qrImg, qrX, qrY, qrSize, qrSize);
+  }
+
+  // Update forbidden image zone
   const zoneMargin = 24;
-  imageZone.x = titleX - zoneMargin;
-  imageZone.y = min(titleY, qrY) - zoneMargin;
-  imageZone.w = (qrX + qrSize) - titleX + zoneMargin * 2;
-  imageZone.h = max(titleH, qrSize) + zoneMargin * 2;
+  if (showQR) {
+    // Zone includes both title and QR code
+    imageZone.x = titleX - zoneMargin;
+    imageZone.y = min(titleY, qrY) - zoneMargin;
+    imageZone.w = (qrX + qrSize) - titleX + zoneMargin * 2;
+    imageZone.h = max(titleH, qrSize) + zoneMargin * 2;
+  } else {
+    // Zone only covers title image
+    imageZone.x = titleX - zoneMargin;
+    imageZone.y = titleY - zoneMargin;
+    imageZone.w = titleW + zoneMargin * 2;
+    imageZone.h = titleH + zoneMargin * 2;
+  }
 }
+
 
 function keepOutImageZonePerson(p) {
   const rx1 = imageZone.x, ry1 = imageZone.y;
@@ -259,7 +286,7 @@ class Person{
     this.name=name; this.picture=picture||defaultThumb; this.bio=bio; this.fn=fn; this.department=department;
     this.pos=createVector(random(width),random(height));
     this.vel=createVector(0,0); this.acc=createVector(0,0);
-    this.size=80; this.radius=this.size/2;
+    this.size=90; this.radius=this.size/2;
   }
   display(){
     push(); translate(this.pos.x,this.pos.y);
@@ -312,7 +339,7 @@ function drawBackgroundSpiral(){
 function drawSpiral(cx,cy,rotation,scaleVal){
   push(); translate(cx,cy); rotate(rotation); scale(scaleVal);
   fill("rgba(155,183,69,0.2)"); blendMode(MULTIPLY); beginShape(); noStroke();
-  const maxRadius=min(width,height*2)*0.6; const turns=5; const points=200;
+  const maxRadius=min(width,height*2); const turns=5; const points=200;
   for(let i=0;i<=points;i++){ const t=i/points; const a=t*turns*TWO_PI; const r=t*maxRadius; vertex(cos(a)*r,sin(a)*r);}
   for(let i=points;i>=0;i--){ const t=i/points; const a=t*turns*TWO_PI; const r=t*maxRadius*0.85; vertex(cos(a)*r,sin(a)*r);}
   endShape(CLOSE); blendMode(BLEND); pop();

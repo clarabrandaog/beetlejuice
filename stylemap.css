@@ -1,0 +1,66 @@
+/* Reset */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    border: 0;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #580FC8;
+    background-color: #9bb745;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* Department title */
+.department-title {
+  text-align: center;
+  font-size: 34px;
+  font-weight: bold;
+  margin: 36px 0 24px 0;
+  text-transform: uppercase;
+  color: #580FC8;
+}
+
+/* Person card */
+.person-card {
+  display: flex;
+  align-items: flex-start;
+  background: rgba(255,255,255,0.95);
+  border-radius: 14px;
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin: 12px auto;
+  gap: 16px;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.person-card:hover { transform: translateY(-4px); }
+
+/* Portrait */
+.person-card img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 3px solid #580FC8;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Text container */
+.person-info { flex: 1; }
+.person-info h3 { font-size: 18px; font-weight: bold; margin-bottom: 6px; }
+.person-info .fn { font-size: 14px; font-weight: bold; margin-bottom: 10px; }
+.person-info .bio { font-size: 13px; line-height: 16px; white-space: pre-wrap; }
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  .person-card { flex-direction: column; align-items: center; text-align: center; }
+  .person-info { flex: none; }
+  .person-card img { margin-bottom: 12px; }
+}

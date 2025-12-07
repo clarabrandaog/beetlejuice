@@ -1,6 +1,3 @@
-// ----------------------------------------------------------
-// Load crew.csv and render crew list
-// ----------------------------------------------------------
 function loadCrew() {
   Papa.parse('crew.csv', {
     download: true,
@@ -25,7 +22,6 @@ function renderCrew(crew) {
   });
 
   Object.keys(departments).sort().forEach(dept => {
-    // Department title
     const deptEl = document.createElement('h2');
     deptEl.textContent = dept.toUpperCase();
     deptEl.className = 'department-title';
@@ -55,7 +51,7 @@ function renderCrew(crew) {
     });
   });
 
-  // Scroll to target person if present
+  // Scroll to target person
   const params = new URLSearchParams(window.location.search);
   const targetName = params.get('person');
   if (targetName) {
@@ -67,5 +63,4 @@ function renderCrew(crew) {
   }
 }
 
-// Run on page load
 document.addEventListener('DOMContentLoaded', loadCrew);
