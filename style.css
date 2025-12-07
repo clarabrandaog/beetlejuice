@@ -1,7 +1,114 @@
-html, body {
+/* Reset */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-canvas {
-  display: block;
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  min-height: 100vh;
+  padding: 12px;
+  color: #580FC8;
+  /* Gradient background similar to p5 spiral colors */
+  background: linear-gradient(135deg, #9bb745 0%, #d6e18c 100%);
+}
+
+/* Back button */
+#backButton {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  width: 48px;
+  height: 48px;
+  background-color: #580FC8;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* Crew Container */
+#crewContainer {
+  margin-top: 72px; /* space for back button */
+  padding-bottom: 40px;
+}
+
+/* Department Title */
+.department-title {
+  text-align: center;
+  font-size: 34px;
+  font-weight: bold;
+  margin: 36px 0 24px 0;
+  text-transform: uppercase;
+}
+
+/* Person Card */
+.person-card {
+  display: flex;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 14px;
+  padding: 16px;
+  margin: 12px 0;
+  gap: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+/* Portrait image */
+.person-card img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 3px solid #580FC8;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Text container */
+.person-info {
+  flex: 1;
+}
+
+/* Name */
+.person-info h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+/* Function */
+.person-info .fn {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Bio */
+.person-info .bio {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .person-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .person-info {
+    flex: none;
+  }
+  .person-info .fn, .person-info .bio {
+    text-align: center;
+  }
+  .person-card img {
+    margin-bottom: 12px;
+  }
 }
