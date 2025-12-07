@@ -286,7 +286,7 @@ class Person{
     this.name=name; this.picture=picture||defaultThumb; this.bio=bio; this.fn=fn; this.department=department;
     this.pos=createVector(random(width),random(height));
     this.vel=createVector(0,0); this.acc=createVector(0,0);
-    this.size=60; this.radius=this.size/2;
+    this.size=40; this.radius=this.size/2;
   }
   display(){
     push(); translate(this.pos.x,this.pos.y);
