@@ -84,8 +84,8 @@ function draw() {
   for (let dept in clusters) {
     const cl = clusters[dept];
     noFill();
-    stroke(200, 180);
-    strokeWeight(1);
+    // stroke(200, 180);
+    // strokeWeight(1);
     circle(cl.cx, cl.cy, cl.r * 2);
     noStroke();
     for (let p of cl.members) p.display();
