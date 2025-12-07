@@ -294,7 +294,7 @@ class Person {
 
     // Set size based on screen width
     if (windowWidth < 700) {
-      this.size = 40;
+      this.size = 50;
     } else {
       this.size = 90;
     }
