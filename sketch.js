@@ -1,3 +1,7 @@
+// -----------------------------------------------------
+// LOAD & RENDER CREW
+// -----------------------------------------------------
+
 function loadCrew() {
   Papa.parse('crew.csv', {
     download: true,
@@ -51,7 +55,7 @@ function renderCrew(crew) {
     });
   });
 
-  // Scroll to target person
+  // Scroll to specific person
   const params = new URLSearchParams(window.location.search);
   const targetName = params.get('person');
   if (targetName) {
@@ -64,3 +68,76 @@ function renderCrew(crew) {
 }
 
 document.addEventListener('DOMContentLoaded', loadCrew);
+
+
+
+// -----------------------------------------------------
+// SPIRAL BACKGROUND (p5.js)
+// -----------------------------------------------------
+
+let angle = 0;
+let wigglePhase = 0;
+
+function drawBackgroundSpiral() {
+  background("#9bb745");
+  angle -= 0.01;
+  wigglePhase += 0.05;
+
+  const wiggleScale = 1 + sin(wigglePhase) * 0.05;
+  drawSpiral(width / 2, height / 2, angle, wiggleScale);
+}
+
+function drawSpiral(cx, cy, rotation, scaleVal) {
+  push();
+  translate(cx, cy);
+  rotate(rotation);
+  scale(scaleVal);
+
+  fill("rgba(155,183,69,0.2)");
+  blendMode(MULTIPLY);
+  beginShape();
+  noStroke();
+
+  const maxRadius = min(width, height * 2);
+  const turns = 5;
+  const points = 200;
+
+  for (let i = 0; i <= points; i++) {
+    const t = i / points;
+    const a = t * turns * TWO_PI;
+    const r = t * maxRadius;
+    vertex(cos(a) * r, sin(a) * r);
+  }
+
+  for (let i = points; i >= 0; i--) {
+    const t = i / points;
+    const a = t * turns * TWO_PI;
+    const r = t * maxRadius * 0.85;
+    vertex(cos(a) * r, sin(a) * r);
+  }
+
+  endShape(CLOSE);
+  blendMode(BLEND);
+  pop();
+}
+
+
+
+// -----------------------------------------------------
+// p5.js SKETCH (required to run the spiral)
+// -----------------------------------------------------
+
+function setup() {
+  const canvas = createCanvas(window.innerWidth, window.innerHeight);
+  canvas.position(0, 0);
+  canvas.style('z-index', '-1');   // keep the spiral behind everything
+  canvas.style('position', 'fixed');
+}
+
+function draw() {
+  drawBackgroundSpiral();
+}
+
+function windowResized() {
+  resizeCanvas(window.innerWidth, window.innerHeight);
+}
