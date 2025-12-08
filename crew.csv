@@ -1,94 +1,103 @@
 name,picture,bio,function,department,icon
-Eduardo Sterblitch,images/thumb.png,Lighting designer with 8 years of experience in immersive theatre.,Beetlejuice,Cast,images/icon.png
-Pâmela Rossini,images/thumb.png,Performer trained in musical theatre and contemporary dance.,Lydia,Cast,images/icon.png
-Ivan Parente,images/thumb.png,Stage manager specializing in large ensemble productions.,Adam,Cast,images/icon.png
-Clara Verdier,images/thumb.png,Carpenter and set builder passionate about sustainable materials.,Barbara,Cast,images/icon.png
-Fabrizio Gorziza,images/thumb.png,Sound engineer with touring experience in pop concerts and theatre.,Charles,Cast,images/icon.png
-Duda Carvalho,images/thumb.png,Performs tenor roles and teaches vocal technique.,Delia,Cast,images/icon.png
-Diego Becker,images/thumb.png,Costume designer focused on historical and fantasy garments.,Otho/Maxie,Cast,images/icon.png
-Larissa Queiroz,images/thumb.png,Programmer responsible for projection mapping and show control.,Maxine,Cast,images/icon.png
-Rosana Penna,images/thumb.png,Props master with background in sculpture and fabrication.,Juno,Cast,images/icon.png
-Giovanna Sassi,images/thumb.png,Assistant stage manager coordinating backstage movement.,Skye,Cast,images/icon.png
-Pamella Machado,images/thumb.png,Performer and swing covering three ensemble tracks.,Miss Argentina,Cast,images/icon.png
-Sofie Orleans,images/thumb.png,Creates digital assets and animations for video projections.,Ensemble - cover Lydia,Cast,images/icon.png
-Mari Marques,images/thumb.png,Audio technician handling microphones and RF equipment.,Ensemble - cover Miss Argentina,Cast,images/icon.png
-Bruna Lemberg,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Ensemble,Cast,images/icon.png
-Marcela Pires,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Ensemble,Cast,images/icon.png
-Renan Rosiq,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Ensemble,Cast,images/icon.png
-Rhuan Santos,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Ensemble,Cast,images/icon.png
-Pedro Balu,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Ensemble,Cast,images/icon.png
-Paulo Freitas,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Ensemble,Cast,images/icon.png
-Hugo Lopes,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Ensemble,Cast,images/icon.png
-Julia Varga,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Ensemble,Cast,images/icon.png
-Fabio Brazile,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Ensemble,Cast,images/icon.png
-Tadeu Aguiar,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Director,Creative,images/icon.png
-Renata Borges,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Executive Producer,Production,images/icon.png
-Laura Visconti,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Musical Director,Creative,images/icon.png
-Cynthia Sell,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Maestro,Orchestra,images/icon.png
-Lucas Metler,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Keys 1,Orchestra,images/icon.png
-Sarah Moreira,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Keys 2,Orchestra,images/icon.png
-Marcio Gomes,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Keys 3,Orchestra,images/icon.png
-Amintas Brasileiro,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Reed 1,Orchestra,images/icon.png
-Tiago Sormani,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Reed 2,Orchestra,images/icon.png
-Phe Sabo,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Reed 3,Orchestra,images/icon.png
-Leticia Andrade,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Violin,Orchestra,images/icon.png
-Mayara Alencar,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Cello,Orchestra,images/icon.png
-Michel Machado,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Trumpet,Orchestra,images/icon.png
-Jaziel Gomes,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Trombone,Orchestra,images/icon.png
-Rogerio Sales,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Guitar 1,Orchestra,images/icon.png
-Jorge Ervolini,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Guitar 2,Orchestra,images/icon.png
-Fernando Brandt,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Bass,Orchestra,images/icon.png
-Bruna Barone,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Drums,Orchestra,images/icon.png
-Gabriel D'Angelo,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Sound Design,Sound,images/icon.png
-André Breda,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Sound Design associate,Sound,images/icon.png
-Leandro Lobo,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Sound Design associate,Sound,images/icon.png
-Zelão Martins,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Sound operator,Sound,images/icon.png
-Gabriel Villas,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Mic Technician and Sound operator,Sound,images/icon.png
-Beatriz Passeti,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Mic Technician,Sound,images/icon.png
-Daniela Sanchez,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Light Designer,Light,images/icon.png
-Moisez Vasconcellos,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,3D light programming,Light,images/icon.png
-Thiago Magnata,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Light operator,Light,images/icon.png
-Tom Silva,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Light technician,Light,images/icon.png
-Vinicius Gustavo,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Light technician,Light,images/icon.png
-Biel Barbosa,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Trucker,Light,images/icon.png
-Julye Luz,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Trucker,Light,images/icon.png
-Alyzandra Pessanha,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Management,Management,images/icon.png
-Marcelo Vasquez,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Director assist. and Resident Director,Creative,images/icon.png
-Claudio Botelho,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Brazilian Version,Creative,images/icon.png
-Renato Theobaldo,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Set Design,Creative,images/icon.png
-Dani Vidal,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Costume,Creative,images/icon.png
-Ney Madeira,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Costume,Creative,images/icon.png
-Anderson Bueno,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Makeup,Creative,images/icon.png
-Feliciano San Roman,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Wigs,Creative,images/icon.png
-Alexandre Queiroz,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Musical Director assist. and Maestro,Creative,images/icon.png
-Sueli Guerra,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Choreographer,Choreography,images/icon.png
-Julia Varga,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Dance Assistant,Choreography,images/icon.png
-Marcela Pires,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Dance Assistant,Choreography,images/icon.png
-Daniela Sanchez,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Desenho de Luz,Light,images/icon.png
-Gabriel D'Angelo,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Sound Design,Creative,images/icon.png
-Bruna Junqueira,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Special Effects Coordinator,Creative,images/icon.png
-André Ferreira,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Stage Manager,Stage management,images/icon.png
-Pedro Rivera,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Stage Technician,Stage management,images/icon.png
-Felipe Tomochigue,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Stage Technician,Stage management,images/icon.png
-Flávio Rodrigues,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Stage Technician,Stage management,images/icon.png
-Maridão,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Stage Technician,Stage management,images/icon.png
-Anderson Igo,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Stage Technician,Stage management,images/icon.png
-Ivan Carlos,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Stage Technician,Stage management,images/icon.png
-Brunninho,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Stage Technician,Stage management,images/icon.png
-Lourival Fonseca,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Stage Technician,Stage management,images/icon.png
-Luiz Pimenta,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Art Director,Creative,images/icon.png
-Gus Perrella,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Art Director,Creative,images/icon.png
-Grazy Pisacane,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Public Relations,Media,images/icon.png
-Clara Brandão,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Social media,Media,images/icon.png
-Felipe Guimarães,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Social media,Media,images/icon.png
-Leonardo Pereira,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Social media,Media,images/icon.png
-Control +,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,OOH media,Media,images/icon.png
-Roberta Juricic,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Production Director,Management,images/icon.png
-Bia Passos,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Production Manager,Management,images/icon.png
-Paula Passos,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Gerente de Produção,Management,images/icon.png
-Cayke Scalione,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Assistente,Management,images/icon.png
-Marcio Valle,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Legal,Admin,images/icon.png
-Marco A. Jorge,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Legal,Admin,images/icon.png
-Lya Baptista,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Finance,Admin,images/icon.png
-Alexandra Lima,images/thumb.png,Lead scenic artist painting textures and large-scale set pieces.,Translator,Admin,images/icon.png
-,,,,Theatre,
+Alexandra Lima,assets/thumbs/pessoa12.png,Lead scenic artist painting textures and large-scale set pieces.,Translator,Admin,images/icon.png
+Alexandre Queiroz,assets/thumbs/ale.png,Lead scenic artist painting textures and large-scale set pieces.,Musical Director assist. and Maestro,Creative,images/icon.png
+Aline Rocha,assets/thumbs/aline.png,Lead scenic artist painting textures and large-scale set pieces.,Coordenadora De Comunicação E Marketing,Media,images/icon.png
+Alyzandra Pessanha,assets/thumbs/pequena.png,Lead scenic artist painting textures and large-scale set pieces.,Management,Management,images/icon.png
+Amintas Brasileiro,assets/thumbs/amintas.png,Lead scenic artist painting textures and large-scale set pieces.,Reed 1,Orchestra,images/icon.png
+Anderson Bueno,assets/thumbs/anderson.png,Lead scenic artist painting textures and large-scale set pieces.,Makeup,Creative,images/icon.png
+Anderson Igo,assets/thumbs/igo.png,Lead scenic artist painting textures and large-scale set pieces.,Stage Technician,Stage management,images/icon.png
+André Breda,assets/thumbs/breda.png,Lead scenic artist painting textures and large-scale set pieces.,Sound Design associate,Sound,images/icon.png
+André Ferreira,assets/thumbs/andre.png,Lead scenic artist painting textures and large-scale set pieces.,Stage Manager,Stage management,images/icon.png
+Beatriz Passeti,assets/thumbs/bia.png,Lead scenic artist painting textures and large-scale set pieces.,Mic Technician,Sound,images/icon.png
+Bia Passos,assets/thumbs/biapassos.png,Lead scenic artist painting textures and large-scale set pieces.,Production Manager,Management,images/icon.png
+Biel Barbosa,assets/thumbs/biel.png,Lead scenic artist painting textures and large-scale set pieces.,Trucker,Light,images/icon.png
+Bruna Barone,assets/thumbs/baterista.png,Lead scenic artist painting textures and large-scale set pieces.,Drums,Orchestra,images/icon.png
+Bruna Fernandes,assets/thumbs/brunaf.png,Lead scenic artist painting textures and large-scale set pieces.,Diretora De Operações,Facilities,images/icon.png
+Bruna Junqueira,assets/thumbs/mazefx.png,Lead scenic artist painting textures and large-scale set pieces.,Special Effects Coordinator,Creative,images/icon.png
+Bruna Lemberg,assets/thumbs/bruna.png,Lead scenic artist painting textures and large-scale set pieces.,Ensemble,Cast,images/icon.png
+Brunninho,assets/thumbs/brunninho.png,Lead scenic artist painting textures and large-scale set pieces.,Stage Technician,Stage management,images/icon.png
+Cayke Scalione,assets/thumbs/cayque.png,Lead scenic artist painting textures and large-scale set pieces.,Assistente,Management,images/icon.png
+Clara Brandão,assets/thumbs/me.png,Lead scenic artist painting textures and large-scale set pieces.,Social media,Media,images/icon.png
+Clara Verdier,assets/thumbs/clara.png,Carpenter and set builder passionate about sustainable materials.,Barbara,Cast,images/icon.png
+Claudio Botelho,assets/thumbs/botelho.png,Lead scenic artist painting textures and large-scale set pieces.,Brazilian Version,Creative,images/icon.png
+Cynthia Sell,assets/thumbs/cinthia.png,Lead scenic artist painting textures and large-scale set pieces.,Maestro,Orchestra,images/icon.png
+Dani Vidal,assets/thumbs/danividal.png,Lead scenic artist painting textures and large-scale set pieces.,Costume,Creative,images/icon.png
+Daniela Sanchez,assets/thumbs/danisanchez.png,Lead scenic artist painting textures and large-scale set pieces.,Light Designer,Light,images/icon.png
+Diego Becker,assets/thumbs/diego.png,Costume designer focused on historical and fantasy garments.,Otho/Maxie,Cast,images/icon.png
+Douglas Nascimento,assets/thumbs/douglas.png,Lead scenic artist painting textures and large-scale set pieces.,Produtor,Management,images/icon.png
+Duda Carvalho,assets/thumbs/duda.png,Performs tenor roles and teaches vocal technique.,Delia,Cast,images/icon.png
+Edson Rocha,assets/thumbs/edson.png,Lead scenic artist painting textures and large-scale set pieces.,Bombeiro,Facilities,images/icon.png
+Eduardo Sterblitch,assets/thumbs/edu.png,Lighting designer with 8 years of experience in immersive theatre.,Beetlejuice,Cast,images/icon.png
+Ellen Machado,assets/thumbs/ellen.png,Lead scenic artist painting textures and large-scale set pieces.,Supervisora De Bilheteria/Receptivo,Box office,images/icon.png
+Fabio Brazile,assets/thumbs/fabio.png,Lead scenic artist painting textures and large-scale set pieces.,Ensemble,Cast,images/icon.png
+Fábio Leandro,assets/thumbs/fabio-lib.png,Lead scenic artist painting textures and large-scale set pieces.,Supervisor Financeiro,Admin,images/icon.png
+Fábio Souza,assets/thumbs/fabio-manu.png,Lead scenic artist painting textures and large-scale set pieces.,Manutenção,Facilities,images/icon.png
+Fabrizio Gorziza,assets/thumbs/fabrizio.png,Sound engineer with touring experience in pop concerts and theatre.,Charles,Cast,images/icon.png
+Feliciano San Roman,assets/thumbs/feliciano.png,Lead scenic artist painting textures and large-scale set pieces.,Wigs,Creative,images/icon.png
+Felipe Guimarães,assets/thumbs/felipe.png,Lead scenic artist painting textures and large-scale set pieces.,Social media,Media,images/icon.png
+Felipe Tomochigue,assets/thumbs/tomochigue.png,Lead scenic artist painting textures and large-scale set pieces.,Stage Technician,Stage management,images/icon.png
+Fernando Alves,assets/thumbs/fernando-alves.png,Lead scenic artist painting textures and large-scale set pieces.,Gerente Administrativo,Admin,images/icon.png
+Fernando Brandt,assets/thumbs/brandt.png,Lead scenic artist painting textures and large-scale set pieces.,Bass,Orchestra,images/icon.png
+Flávio Rodrigues,assets/thumbs/flavio.png,Lead scenic artist painting textures and large-scale set pieces.,Stage Technician,Stage management,images/icon.png
+Gabriel D'Angelo,assets/thumbs/dangelo.png,Lead scenic artist painting textures and large-scale set pieces.,Sound Design,Sound,images/icon.png
+Gabriel Villas,assets/thumbs/villas.png,Lead scenic artist painting textures and large-scale set pieces.,Mic Technician and Sound operator,Sound,images/icon.png
+Guilherme Penedo,assets/thumbs/penedo.png,Lead scenic artist painting textures and large-scale set pieces.,Light Operator,Light,images/icon.png
+Giovanna Sassi,assets/thumbs/gi-sassi.png,Assistant stage manager coordinating backstage movement.,Skye,Cast,images/icon.png
+Grazy Pisacane,assets/thumbs/grazy.png,Lead scenic artist painting textures and large-scale set pieces.,Public Relations,Media,images/icon.png
+Gus Perrella,assets/thumbs/gus.png,Lead scenic artist painting textures and large-scale set pieces.,Art Director,Creative,images/icon.png
+Hugo Lopes,assets/thumbs/pessoa11.png,Lead scenic artist painting textures and large-scale set pieces.,Ensemble,Cast,images/icon.png
+Humberto Martins,assets/thumbs/humberto.png,Lead scenic artist painting textures and large-scale set pieces.,Coordenador De Produção/Técnica,Stage management,images/icon.png
+Isabella De Oliveira Santos,assets/thumbs/isabella.png,Lead scenic artist painting textures and large-scale set pieces.,Bilheteria,Box office,images/icon.png
+Ivan Carlos,assets/thumbs/ivanc.png,Lead scenic artist painting textures and large-scale set pieces.,Stage Technician,Stage management,images/icon.png
+Ivan Parente,assets/thumbs/ivan.png,Stage manager specializing in large ensemble productions.,Adam,Cast,images/icon.png
+Jaziel Gomes,assets/thumbs/jaziel.png,Lead scenic artist painting textures and large-scale set pieces.,Trombone,Orchestra,images/icon.png
+Jorge Ervolini,assets/thumbs/jorge-ervolini.png,Lead scenic artist painting textures and large-scale set pieces.,Guitar 2,Orchestra,images/icon.png
+Julia Varga,assets/thumbs/julia.png,Lead scenic artist painting textures and large-scale set pieces.,Dance Assistant,Choreography,images/icon.png
+Julye Luz,assets/thumbs/julye.png,Lead scenic artist painting textures and large-scale set pieces.,Trucker,Light,images/icon.png
+Larissa Queiroz,assets/thumbs/larissa.png,Programmer responsible for projection mapping and show control.,Maxine,Cast,images/icon.png
+Laura Visconti,assets/thumbs/laura.png,Lead scenic artist painting textures and large-scale set pieces.,Musical Director,Creative,images/icon.png
+Leandro Lobo,assets/thumbs/pessoa5.png,Lead scenic artist painting textures and large-scale set pieces.,Sound Design associate,Sound,images/icon.png
+Leonardo Pereira,assets/thumbs/leo.png,Lead scenic artist painting textures and large-scale set pieces.,Social media,Media,images/icon.png
+Leticia Andrade,assets/thumbs/leticia.png,Lead scenic artist painting textures and large-scale set pieces.,Violin,Orchestra,images/icon.png
+Lourival Fonseca,assets/thumbs/lourival.png,Lead scenic artist painting textures and large-scale set pieces.,Stage Technician,Stage management,images/icon.png
+Lucas Dornellas,assets/thumbs/lucasd.png,Lead scenic artist painting textures and large-scale set pieces.,Supervisor De Palco,Stage management,images/icon.png
+Lucas Metler,assets/thumbs/lucas-metler.png,Lead scenic artist painting textures and large-scale set pieces.,Keys 1,Orchestra,images/icon.png
+Luiz Pimenta,assets/thumbs/luizp.png,Lead scenic artist painting textures and large-scale set pieces.,Art Director,Creative,images/icon.png
+Lya Baptista,assets/thumbs/lya.png,Lead scenic artist painting textures and large-scale set pieces.,Finance,Admin,images/icon.png
+Manuel Fernandes,assets/thumbs/manuel.png,Lead scenic artist painting textures and large-scale set pieces.,Administrador,Admin,images/icon.png
+Marcela Pires,assets/thumbs/marcela.png,Lead scenic artist painting textures and large-scale set pieces.,Ensemble,Cast,images/icon.png
+Marcelo Vasquez,assets/thumbs/marcelo.png,Lead scenic artist painting textures and large-scale set pieces.,Director assist. and Resident Director,Creative,images/icon.png
+Marcio Gomes,assets/thumbs/marcio-gomes.png,Lead scenic artist painting textures and large-scale set pieces.,Keys 3,Orchestra,images/icon.png
+Marcio Valle,assets/thumbs/marcio.png,Lead scenic artist painting textures and large-scale set pieces.,Legal,Admin,images/icon.png
+Marco A. Jorge,assets/thumbs/marco.png,Lead scenic artist painting textures and large-scale set pieces.,Legal,Admin,images/icon.png
+Mari Marques,assets/thumbs/mari.png,Audio technician handling microphones and RF equipment.,Ensemble - cover Miss Argentina,Cast,images/icon.png
+Maridão,assets/thumbs/maridao.png,Lead scenic artist painting textures and large-scale set pieces.,Stage Technician,Stage management,images/icon.png
+Mayara Alencar,assets/thumbs/mayara.png,Lead scenic artist painting textures and large-scale set pieces.,Cello,Orchestra,images/icon.png
+Michel Machado,assets/thumbs/michel.png,Lead scenic artist painting textures and large-scale set pieces.,Trumpet,Orchestra,images/icon.png
+Moisez Vasconcellos,assets/thumbs/moisez.png,Lead scenic artist painting textures and large-scale set pieces.,3D light programming,Light,images/icon.png
+Ney Madeira,assets/thumbs/ney.png,Lead scenic artist painting textures and large-scale set pieces.,Costume,Creative,images/icon.png
+Pâmela Rossini,assets/thumbs/pamella.png,Performer trained in musical theatre and contemporary dance.,Lydia,Cast,images/icon.png
+Pamella Machado,assets/thumbs/pamella-m.png,Performer and swing covering three ensemble tracks.,Miss Argentina,Cast,images/icon.png
+Paula Passos,assets/thumbs/paulapassos.png,Lead scenic artist painting textures and large-scale set pieces.,Gerente de Produção,Management,images/icon.png
+Paulo Freitas,assets/thumbs/paulo.png,Lead scenic artist painting textures and large-scale set pieces.,Ensemble,Cast,images/icon.png
+Pedro Balu,assets/thumbs/balu.png,Lead scenic artist painting textures and large-scale set pieces.,Ensemble,Cast,images/icon.png
+Pedro Rivera,assets/thumbs/pedro.png,Lead scenic artist painting textures and large-scale set pieces.,Stage Technician,Stage management,images/icon.png
+Phe Sabo,assets/thumbs/phe.png,Lead scenic artist painting textures and large-scale set pieces.,Reed 3,Orchestra,images/icon.png
+Renan Rosiq,assets/thumbs/renan.png,Lead scenic artist painting textures and large-scale set pieces.,Ensemble,Cast,images/icon.png
+Renata Borges,assets/thumbs/renata.png,Lead scenic artist painting textures and large-scale set pieces.,Executive Producer,Production,images/icon.png
+Renato Theobaldo,assets/thumbs/renato.png,Lead scenic artist painting textures and large-scale set pieces.,Set Design,Creative,images/icon.png
+Rhuan Santos,assets/thumbs/rhuan.png,Lead scenic artist painting textures and large-scale set pieces.,Ensemble,Cast,images/icon.png
+Roberta Juricic,assets/thumbs/roberta.png,Lead scenic artist painting textures and large-scale set pieces.,Production Director,Management,images/icon.png
+Rogerio Sales,assets/thumbs/rogerio.png,Lead scenic artist painting textures and large-scale set pieces.,Guitar 1,Orchestra,images/icon.png
+Rosana Penna,assets/thumbs/rosana.png,Props master with background in sculpture and fabrication.,Juno,Cast,images/icon.png
+Sarah Moreira,assets/thumbs/orquestra 3.png,Lead scenic artist painting textures and large-scale set pieces.,Keys 2,Orchestra,images/icon.png
+Sofie Orleans,assets/thumbs/sofie.png,Creates digital assets and animations for video projections.,Ensemble - cover Lydia,Cast,images/icon.png
+Sueli Guerra,assets/thumbs/sueli.png,Lead scenic artist painting textures and large-scale set pieces.,Choreographer,Choreography,images/icon.png
+Tadeu Aguiar,assets/thumbs/tadeu.png,Lead scenic artist painting textures and large-scale set pieces.,Director,Creative,images/icon.png
+Thais,assets/thumbs/thais.png,Lead scenic artist painting textures and large-scale set pieces.,Stage management,Dresser,images/icon.png
+Thiago Magnata,assets/thumbs/magnata.png,Lead scenic artist painting textures and large-scale set pieces.,Light operator,Light,images/icon.png
+Tiago Sormani,assets/thumbs/sormani.png,Lead scenic artist painting textures and large-scale set pieces.,Reed 2,Orchestra,images/icon.png
+Tom Silva,assets/thumbs/tomsilva.png,Lead scenic artist painting textures and large-scale set pieces.,Light technician,Light,images/icon.png
+Victória Oliveira,assets/thumbs/victoria.png,Lead scenic artist painting textures and large-scale set pieces.,Assistente De Criação,Media,images/icon.png
+Vinicius Gustavo,assets/thumbs/vinicius.png,Lead scenic artist painting textures and large-scale set pieces.,Light technician,Light,images/icon.png
+Zelão Martins,assets/thumbs/zelao.png,Lead scenic artist painting textures and large-scale set pieces.,Sound operator,Sound,images/icon.png

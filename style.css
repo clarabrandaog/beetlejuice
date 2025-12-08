@@ -1,3 +1,10 @@
+@font-face {
+      font-family: 'Latin CG Elongated Regular'; /* Choose a unique name for your font */
+      src: url('assets/Latin CG Elongated Regular.otf') format('truetype'); /* Adjust the path to your .ttf file */
+      font-weight: normal; /* Optional: Define font weight */
+      font-style: normal; /* Optional: Define font style */
+    }
+
 /* Reset */
 * {
   box-sizing: border-box;
@@ -44,9 +51,10 @@ body {
 
 /* Department title */
 .department-title {
+  font-family: 'Latin CG Elongated Regular';
   text-align: center;
-  font-size: 34px;
-  font-weight: bold;
+  font-size: 50px;
+  font-weight: normal;
   margin: 36px 0 24px 0;
   text-transform: uppercase;
   color: #580FC8;
