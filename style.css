@@ -134,3 +134,203 @@ body {
     height: 72px;
   }
 }
+
+/* ----------------------------------------
+   Admin page styles
+   ---------------------------------------- */
+
+.admin-page {
+  /* Match overall site background and typography */
+  background: #9bb745;
+  color: #580FC8;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.admin-page .admin-shell {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.96); /* white card like person-card */
+  border-radius: 14px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  max-width: 520px;
+  width: 100%;
+  padding: 24px 24px 20px;
+}
+
+.admin-page .admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.admin-page .admin-title {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #580FC8;
+  font-family: 'Latin CG Elongated Regular', sans-serif;
+}
+
+.admin-page .admin-subtitle {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+.admin-page .admin-back {
+  background: #580FC8;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 999px;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.admin-page .admin-back:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(-1px);
+}
+
+.admin-page form {
+  display: grid;
+  gap: 12px;
+}
+
+.admin-page label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.85;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.admin-page .field-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-page input,
+.admin-page textarea,
+.admin-page select {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  color: #f5f5f5;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.admin-page textarea {
+  border-radius: 12px;
+  min-height: 70px;
+  resize: vertical;
+}
+
+.admin-page input:focus,
+.admin-page textarea:focus,
+.admin-page select:focus {
+  border-color: #580FC8;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 0 1px rgba(88, 15, 200, 0.35);
+}
+
+.admin-page select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #f5f5f5 50%),
+    linear-gradient(135deg, #f5f5f5 50%, transparent 50%);
+  background-position: calc(100% - 16px) calc(50% - 3px),
+    calc(100% - 10px) calc(50% - 3px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+.admin-page .hint {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  margin-top: 2px;
+}
+
+.admin-page .row {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 10px;
+}
+
+.admin-page .actions {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.admin-page .submit-btn {
+  background: #580FC8;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 9px 18px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: 'Latin CG Elongated Regular', sans-serif;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+  transition: transform 0.08s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.admin-page .submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.3);
+}
+
+.admin-page .submit-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.admin-page .status {
+  font-size: 0.8rem;
+  min-height: 1em;
+}
+
+.admin-page .status--success {
+  color: #b1ff7a;
+}
+
+.admin-page .status--error {
+  color: #ff8080;
+}
+
+@media (max-width: 640px) {
+  .admin-page .admin-shell {
+    border-radius: 0;
+    max-width: none;
+    min-height: 100vh;
+    padding: 16px 18px 18px;
+  }
+
+  .admin-page .row {
+    grid-template-columns: 1fr;
+  }
+}
+
