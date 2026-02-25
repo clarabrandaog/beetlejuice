@@ -1,0 +1,13 @@
+{
+  "name": "beetlejuice-crew-admin",
+  "version": "1.0.0",
+  "description": "Beetlejuice Brazil crew visualization with simple backend to add new crew to crew.csv",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "NODE_ENV=development node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beetlejuice Crew Admin</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <style>
+    body {
+      background: #9bb745;
+      color: #f5f5f5;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .admin-shell {
+      position: relative;
+      z-index: 1;
+      background: rgba(0, 0, 0, 0.85);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.8);
+      max-width: 520px;
+      width: 100%;
+      padding: 24px 24px 20px;
+    }
+
+    .admin-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .admin-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .admin-subtitle {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 4px;
+    }
+
+    .admin-back {
+      background: transparent;
+      border: none;
+      color: #f5f5f5;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 999px;
+      transition: background 0.15s ease, transform 0.1s ease;
+    }
+
+    .admin-back:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateX(-1px);
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+    }
+
+    label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      opacity: 0.85;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input,
+    textarea,
+    select {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 8px 12px;
+      color: #f5f5f5;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    textarea {
+      border-radius: 12px;
+      min-height: 70px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #9bb745;
+      background: rgba(155, 183, 69, 0.12);
+      box-shadow: 0 0 0 1px rgba(155, 183, 69, 0.5);
+    }
+
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: linear-gradient(45deg, transparent 50%, #f5f5f5 50%),
+        linear-gradient(135deg, #f5f5f5 50%, transparent 50%);
+      background-position: calc(100% - 16px) calc(50% - 3px),
+        calc(100% - 10px) calc(50% - 3px);
+      background-size: 6px 6px, 6px 6px;
+      background-repeat: no-repeat;
+    }
+
+    .hint {
+      font-size: 0.75rem;
+      opacity: 0.6;
+      margin-top: 2px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 10px;
+    }
+
+    .actions {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .submit-btn {
+      background: #9bb745;
+      color: #111;
+      border: none;
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 12px 25px rgba(155, 183, 69, 0.25);
+      transition: transform 0.08s ease, box-shadow 0.12s ease, background 0.12s ease;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 35px rgba(155, 183, 69, 0.35);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 8px 18px rgba(155, 183, 69, 0.25);
+    }
+
+    .status {
+      font-size: 0.8rem;
+      min-height: 1em;
+    }
+
+    .status--success {
+      color: #b1ff7a;
+    }
+
+    .status--error {
+      color: #ff8080;
+    }
+
+    @media (max-width: 640px) {
+      .admin-shell {
+        border-radius: 0;
+        max-width: none;
+        min-height: 100vh;
+        padding: 16px 18px 18px;
+      }
+
+      .row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-shell">
+    <header class="admin-header">
+      <div>
+        <div class="admin-title">Crew Admin</div>
+        <div class="admin-subtitle">Log a new human into the map</div>
+      </div>
+      <button type="button" class="admin-back" id="backButton" aria-label="Back to map">
+        ←
+      </button>
+    </header>
+
+    <form id="crewForm" autocomplete="off">
+      <div class="field-group">
+        <label for="name">Name*</label>
+        <input id="name" name="name" required placeholder="Full name" />
+      </div>
+
+      <div class="field-group">
+        <label for="picture">Picture path</label>
+        <input
+          id="picture"
+          name="picture"
+          placeholder="e.g. assets/thumbs/new-person.png"
+        />
+        <div class="hint">
+          File should live in <code>assets/thumbs/</code> and match this path.
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="bio">Short bio</label>
+        <textarea
+          id="bio"
+          name="bio"
+          placeholder="Small bio about the theatre worker. @instagramhandle"
+        ></textarea>
+      </div>
+
+      <div class="row">
+        <div class="field-group">
+          <label for="fn">Function*</label>
+          <input
+            id="fn"
+            name="fn"
+            required
+            placeholder="e.g. Stage Technician"
+          />
+        </div>
+
+        <div class="field-group">
+          <label for="department">Department*</label>
+          <select id="department" name="department" required>
+            <option value="">Select…</option>
+            <option value="Cast">Cast</option>
+            <option value="Orchestra">Orchestra</option>
+            <option value="Stage management">Stage management</option>
+            <option value="Light">Light</option>
+            <option value="Sound">Sound</option>
+            <option value="Creative">Creative</option>
+            <option value="Media">Media</option>
+            <option value="Production">Production</option>
+            <option value="Admin">Admin</option>
+            <option value="Facilities">Facilities</option>
+            <option value="Box office">Box office</option>
+            <option value="Choreography">Choreography</option>
+            <option value="Management">Management</option>
+            <option value="Dresser">Dresser</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="icon">Icon path</label>
+        <input
+          id="icon"
+          name="icon"
+          placeholder="images/icon.png"
+          value="images/icon.png"
+        />
+        <div class="hint">
+          Defaults to <code>images/icon.png</code> if left as-is.
+        </div>
+      </div>
+
+      <div class="actions">
+        <div id="status" class="status" aria-live="polite"></div>
+        <button type="submit" class="submit-btn">
+          Save crew
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // Same spiral background as browser.html
+    let angle = 0;
+    let wigglePhase = 0;
+
+    function drawBackgroundSpiral() {
+      background("#9bb745");
+      angle -= 0.01;
+      wigglePhase += 0.05;
+      const wiggleScale = 1 + sin(wigglePhase) * 0.05;
+      drawSpiral(width / 2, height / 2, angle, wiggleScale);
+    }
+
+    function drawSpiral(cx, cy, rotation, scaleVal) {
+      push();
+      translate(cx, cy);
+      rotate(rotation);
+      scale(scaleVal);
+      fill("rgba(155,183,69,0.2)");
+      blendMode(MULTIPLY);
+      beginShape();
+      noStroke();
+      const maxRadius = min(width, height * 2);
+      const turns = 5;
+      const points = 200;
+      for (let i = 0; i <= points; i++) {
+        const t = i / points;
+        const a = t * turns * TWO_PI;
+        const r = t * maxRadius;
+        vertex(cos(a) * r, sin(a) * r);
+      }
+      for (let i = points; i >= 0; i--) {
+        const t = i / points;
+        const a = t * turns * TWO_PI;
+        const r = t * maxRadius * 0.85;
+        vertex(cos(a) * r, sin(a) * r);
+      }
+      endShape(CLOSE);
+      blendMode(BLEND);
+      pop();
+    }
+
+    function setup() {
+      const canvas = createCanvas(window.innerWidth, window.innerHeight);
+      canvas.position(0, 0);
+      canvas.style('z-index', '-1');
+      canvas.style('position', 'fixed');
+    }
+
+    function draw() {
+      drawBackgroundSpiral();
+    }
+
+    function windowResized() {
+      resizeCanvas(window.innerWidth, window.innerHeight);
+    }
+  </script>
+  <script>
+    document.getElementById('backButton').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+
+    const form = document.getElementById('crewForm');
+    const statusEl = document.getElementById('status');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      statusEl.textContent = '';
+      statusEl.className = 'status';
+
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+
+      if (!payload.name || !payload.fn || !payload.department) {
+        statusEl.textContent = 'Please fill all required fields.';
+        statusEl.classList.add('status--error');
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/crew', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok || !data.success) {
+          throw new Error(data.error || 'Request failed');
+        }
+
+        statusEl.textContent = 'Crew member added to CSV.';
+        statusEl.classList.add('status--success');
+        form.reset();
+        document.getElementById('icon').value = 'images/icon.png';
+      } catch (err) {
+        console.error(err);
+        statusEl.textContent =
+          'Could not save. Check the server console for details.';
+        statusEl.classList.add('status--error');
+      }
+    });
+  </script>
+</body>
+</html>
+
